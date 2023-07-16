@@ -1,8 +1,18 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro'
 const pageTitle = "The Official Website of Oonagability Triffeliz Group";
 ---
 <BaseLayout pageTitle={pageTitle}>
+	<Hero />
 	<h1>Oonagability Triffeliz</h1>
-	<p>test</p>
 </BaseLayout>
+
+<script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Oonagability Triffeliz",
+      "url": "https://triffoona.com/"
+    }
+</script>
