@@ -1,5 +1,5 @@
 ---
-
+import { Picture } from "astro-imagetools/components";
 ---
 <section class="relative w-full bg-gray-900">
     <div class="relative px-8 pt-10 mx-auto max-w-7xl">
@@ -14,9 +14,9 @@
             </div>
             <div class="relative flex items-center justify-center w-full md:w-1/2 md:pt-0">
                 <div class="absolute w-full p-12 opacity-100">
-                    <img src="https://cdn.devdojo.com/images/august2021/background-patterns.png">
+                    <Picture src="/src/images/background-patterns.png" alt="background patterns" />
                 </div>
-                <img src="https://cdn.devdojo.com/images/august2021/person.png" class="relative w-full h-auto h-full max-w-sm md:w-96">
+                <Picture src="/src/images/person.png" alt="A guy on a phone" placeholder="blurred" />
             </div>
         </div>
     </div>
