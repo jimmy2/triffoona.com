@@ -1,0 +1,17 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import { Picture } from "astro-imagetools/components";
+const { frontmatter } = Astro.props;
+---
+<BaseLayout pageTitle={frontmatter.title}>
+    <section>
+		<div class="bg-white px-6 py-16 lg:px-8">
+            <p>{frontmatter.pubDate.slice(0,10)}</p>
+            <p>Written by: {frontmatter.author}</p>
+            <Picture src={frontmatter.image.url} placeholder="blurred" width="1456" height="816" alt={frontmatter.image.alt} />
+            <article class="prose-xl">
+                <slot />
+            </article>  
+        </div>
+    </section>
+</BaseLayout>
