@@ -9,5 +9,5 @@ import mdx from "@astrojs/mdx";
 export default defineConfig({
   site: "https://triffoona.com/",
   trailingSlash: "never",
-  integrations: [tailwind(), sitemap(), astroImageTools, mdx()]
+  integrations: [tailwind(), sitemap(), astroImageTools, mdx()],
 });
