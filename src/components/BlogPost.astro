@@ -1,13 +1,13 @@
 ---
-const { url, title, src, alt } = Astro.props;
-import { Picture } from "astro-imagetools/components";
+const { url, title, src, alt, category } = Astro.props;
+import { Picture } from '@astrojs/image/components';
 ---
 <div class="relative col-span-12 mb-10 space-y-4 md:col-span-6 lg:col-span-4">
-    <a href={url} class="relative block w-full h-64 overflow-hidden rounded">
+    <a href={url} class="relative block w-full h-auto overflow-hidden rounded">
         <div class="object-cover object-center w-full h-full transition duration-500 ease-out transform scale-100 hover:scale-105">
-           <Picture src={src} alt={alt} /> 
+           <Picture src={src} alt={alt} widths={[400, 800, 1200]} aspectRatio={1456/816} /> 
         </div>
     </a>
-    <p class="text-xs font-bold text-gray-400 uppercase">Category</p>
+    <p class="text-xs font-bold text-purple-400 uppercase">{category}</p>
     <a href={url} class="block text-2xl font-medium leading-tight text-gray-700 hover:text-gray-900">{title}</a>
 </div>

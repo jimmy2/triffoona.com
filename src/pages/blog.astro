@@ -14,7 +14,7 @@ const pageTitle="Oonagability Triffeliz Blog - Latest Posts and News"
                 <h1 class="text-3xl font-bold text-gray-800">Latest Posts</h1>
             </div>
             <div class="grid grid-cols-12 gap-6">
-                {allPosts.map((post) => <BlogPost url={post.url} title={post.frontmatter.title} src={post.frontmatter.image.url} alt={post.frontmatter.image.alt} />)}   
+                {allPosts.map((post) => <BlogPost url={post.url} title={post.frontmatter.title} src={post.frontmatter.image.url} alt={post.frontmatter.image.alt} category={post.frontmatter.category} />)}   
             </div>
         </div>
     </section>
