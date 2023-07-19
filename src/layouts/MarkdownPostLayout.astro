@@ -8,7 +8,7 @@ const { frontmatter } = Astro.props;
 		<div class="bg-white px-6 py-16 lg:px-16">
             <p>{frontmatter.pubDate.slice(0,10)}</p>
             <p>Written by: {frontmatter.author}</p>
-            <Picture src={import(frontmatter.image.url)} alt={frontmatter.image.alt} widths={[400, 800, 1200, 1456]} aspectRatio={1456/816} />
+            <Picture src={frontmatter.image.url} alt={frontmatter.image.alt} widths={[400, 800, 1200, 1456]} aspectRatio={1456/816} />
             <article class="prose">
                 <slot />
             </article>  
