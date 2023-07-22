@@ -14,7 +14,7 @@ const { frontmatter } = Astro.props;
             <p>{frontmatter.pubDate.slice(0,10)}</p>
             <p class="mb-6">Written by: {frontmatter.author}</p>
             <Picture src={frontmatter.image.url} alt={frontmatter.image.alt} widths={[400, 800, 1200, 1456]} aspectRatio={1456/816} />
-            <article class="prose mt-6">
+            <article class="prose mt-6 max-w-prose mx-auto">
                 <slot />
             </article>  
         </div>

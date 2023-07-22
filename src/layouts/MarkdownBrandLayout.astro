@@ -11,7 +11,7 @@ const { frontmatter } = Astro.props;
     />
     <section>
 		<div class="bg-white px-6 py-16 lg:px-16 max-w-4xl mx-auto">
-            <article class="prose mt-6">
+            <article class="prose mt-6 max-w-prose mx-auto">
                 <Picture src={frontmatter.image.url} alt={frontmatter.image.alt} widths={[400, 800, 1200, 1456]} aspectRatio={1456/816} height="1456" width="816" />
                 <slot />
             </article>  
