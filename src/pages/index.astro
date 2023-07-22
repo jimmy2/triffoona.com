@@ -1,11 +1,29 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../components/Hero.astro'
+import BlogPost from '../components/BlogPost.astro'
+import BrandHomeSection from '../components/BrandHomeSection.astro'
 const pageTitle = "The Official Website of Oonagability Triffeliz Group";
+const allPosts = await Astro.glob('../pages/posts/*.mdx');
+const allBrands = await Astro.glob('../pages/brands/*.mdx');
 ---
 <BaseLayout pageTitle={pageTitle}>
 	<Hero />
-	<h1>Oonagability Triffeliz</h1>
+  <!--Brands -->
+  <section class="relative bg-white">
+    {allBrands.map((brand) => <BrandHomeSection url={brand.url} title={brand.frontmatter.anchor} src={brand.frontmatter.image.url} alt={brand.frontmatter.image.alt} category={brand.frontmatter.category} description={brand.frontmatter.description} />)} 
+  </section>
+  <!-- Blogs -->
+  <section class="w-full py-8 bg-white sm:py-12 md:py-16">
+    <div class="px-10 mx-auto max-w-7xl">
+        <div class="flex items-center justify-between w-full pb-5 mb-8 border-b border-gray-200">
+            <h1 class="text-3xl font-bold text-gray-800">Latest from the Blog</h1>
+        </div>
+        <div class="grid grid-cols-12 gap-6">
+            {allPosts.map((post) => <BlogPost url={post.url} title={post.frontmatter.title} src={post.frontmatter.image.url} alt={post.frontmatter.image.alt} category={post.frontmatter.category} />)}   
+        </div>
+    </div>
+  </section>
 </BaseLayout>
 
 <script type="application/ld+json">

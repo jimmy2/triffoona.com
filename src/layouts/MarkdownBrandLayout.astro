@@ -1,0 +1,20 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import { Picture } from '@astrojs/image/components';
+import TextHero from '../components/TextHero.astro';
+const { frontmatter } = Astro.props;
+---
+<BaseLayout pageTitle={frontmatter.title}>
+    <TextHero 
+        heading={frontmatter.heading} 
+        blurb={frontmatter.description}
+    />
+    <section>
+		<div class="bg-white px-6 py-16 lg:px-16 max-w-4xl mx-auto">
+            <article class="prose mt-6">
+                <Picture src={frontmatter.image.url} alt={frontmatter.image.alt} widths={[400, 800, 1200, 1456]} aspectRatio={1456/816} height="1456" width="816" />
+                <slot />
+            </article>  
+        </div>
+    </section>
+</BaseLayout>

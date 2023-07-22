@@ -1,21 +1,19 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import BlogPost from '../../components/BlogPost.astro'
+import BrandPost from '../../components/BrandPost.astro'
 import TextHero from '../../components/TextHero.astro';
 const allBrands = await Astro.glob('../../pages/brands/*.mdx');
-const pageTitle="Oonagability Triffeliz Blog - Latest Brands and News"
+const pageTitle="The Oonagability Triffeliz Group Selection of Brands and Companies"
 ---
 
 <BaseLayout pageTitle={pageTitle}>
     <TextHero heading="Our Brands" blurb="A showcase of the diverse and unique brands under the Oonagability Triffeliz umbrella. From the intricate elegance of gold-filled jewellery to delicious Dutch cupcakes, cutting-edge pet technology, and invigorating yoga sessions, we cover an eclectic spectrum. Delve into the world of our brands and discover the passion, innovation, and expertise that make each one distinctively delightful."     />
-    <section class="w-full py-8 bg-white sm:py-12 md:py-16">
-        <div class="px-10 mx-auto max-w-7xl">
+    <section class="w-full bg-white">
+        <div class="max-w-3xl pb-8 mx-auto md:py-12 lg:py-16">
             <div class="flex items-center justify-between w-full pb-5 mb-8 border-b border-gray-200">
                 <h1 class="text-3xl font-bold text-gray-800">All of our Brands</h1>
             </div>
-            <div class="grid grid-cols-12 gap-6">
-                {allBrands.map((post) => <BlogPost url={post.url} title={post.frontmatter.heading} src={post.frontmatter.image.url} alt={post.frontmatter.image.alt} category={post.frontmatter.category} />)}   
-            </div>
+            {allBrands.map((brand) => <BrandPost url={brand.url} title={brand.frontmatter.anchor} src={brand.frontmatter.image.url} alt={brand.frontmatter.image.alt} category={brand.frontmatter.category} description={brand.frontmatter.description} />)}   
         </div>
     </section>
 </BaseLayout>

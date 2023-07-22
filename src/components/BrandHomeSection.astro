@@ -1,0 +1,18 @@
+---
+const { url, title, src, alt, category, description } = Astro.props;
+import { Picture } from '@astrojs/image/components';
+---
+<div class="pt-10">
+    <div class="px-10 md:px-4 mx-auto mb-6">
+        <div class="mx-auto text-left md:text-center max-w-3xl">
+            <p class="flex mb-5 items-center text-indigo-500 font-semibold text-sm uppercase tracking-widest md:justify-center">Our {category} Brand</p>
+            <h2 class="mb-6 text-4xl lg:text-5xl font-bold">
+                <a href={url} class="hover:underline">{title}</a>
+            </h2>
+            <p class="text-gray-500 text-lg mb-10">{description}</p>
+        </div>
+    </div>
+    <div class="relative">
+        <Picture src={src} alt={alt} widths={[400, 800, 1200]} aspectRatio={1456/816} class="w-full h-full object-cover object-top" /> 
+    </div>
+</div>
