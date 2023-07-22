@@ -3,6 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../components/Hero.astro'
 import BlogPost from '../components/BlogPost.astro'
 import BrandHomeSection from '../components/BrandHomeSection.astro'
+import FAQ from '../components/FAQ.astro';
 const pageTitle = "The Official Website of Oonagability Triffeliz Group";
 const allPosts = await Astro.glob('../pages/posts/*.mdx');
 const allBrands = await Astro.glob('../pages/brands/*.mdx');
@@ -13,6 +14,8 @@ const allBrands = await Astro.glob('../pages/brands/*.mdx');
   <section class="relative bg-white">
     {allBrands.map((brand) => <BrandHomeSection url={brand.url} title={brand.frontmatter.anchor} src={brand.frontmatter.image.url} alt={brand.frontmatter.image.alt} category={brand.frontmatter.category} description={brand.frontmatter.description} />)} 
   </section>
+  <!-- FAQs -->
+  <FAQ />
   <!-- Blogs -->
   <section class="w-full py-8 bg-white sm:py-12 md:py-16">
     <div class="px-10 mx-auto max-w-7xl">
